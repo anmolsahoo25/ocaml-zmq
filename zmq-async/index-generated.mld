@@ -1,0 +1,2 @@
+{1 Library zmq-async}
+The entry point for this library is module {!module:Zmq_async}.
