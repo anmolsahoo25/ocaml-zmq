@@ -1,2 +1,0 @@
-{1 Library zmq-lwt}
-The entry point for this library is module {!module:Zmq_lwt}.
