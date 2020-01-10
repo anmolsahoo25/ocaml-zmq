@@ -486,7 +486,6 @@ CAMLprim value caml_zmq_recv(value socket, value block_flag) {
  */
 void caml_zmq_remove_generational_global_root(void *data __attribute__((unused)), void *hint) {
     CAMLparam0();
-    caml_remove_generational_global_root(hint);
     CAMLreturn0;
 }
 
