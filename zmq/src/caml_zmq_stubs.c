@@ -18,6 +18,7 @@
 #include <caml/intext.h>
 #include <caml/threads.h>
 #include <caml/bigarray.h>
+#include <caml/globroots.h>
 
 #if defined(_WIN32) || defined(_WIN64)
 #  include <winsock2.h>
@@ -563,7 +564,7 @@ CAMLprim value caml_zmq_msg_init_data(value ba, value offset, value len) {
     zmq_msg_t *cmsg;
     cmsg = (zmq_msg_t *)malloc(sizeof(zmq_msg_t));
 
-    caml_register_generational_global_root(&ba);
+    caml_register_dyn_global(&ba);
     int result = zmq_msg_init_data(cmsg, (char*)Caml_ba_data_val(ba) + Int_val(offset), Int_val(len), (void *)caml_zmq_remove_generational_global_root, (void *)ba);
 
     int errno;
